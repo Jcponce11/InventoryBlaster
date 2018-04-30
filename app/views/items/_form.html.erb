@@ -1,0 +1,15 @@
+<%= simple_form_for @item do |f| %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select A Category") %>
+  <%= f.file_field :item_img %>
+  <%= f.input :code, label: "ACC Code" %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :manufacturer %>
+  <%= f.input :serial %>
+  <%= f.input :modelName %>
+  <%= f.input :modelNumber %>
+  <%= f.input :purchaseOrder %>
+  <%= f.input :purchaseDate %>
+  <%= f.input :purchasePrice %>
+  <%= f.button :submit %>
+<% end %>

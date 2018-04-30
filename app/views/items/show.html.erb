@@ -1,0 +1,38 @@
+<div class="row">
+
+  <div class="col-md-4">
+  <%= image_tag @item.item_img.url(:item_show), class: "item-show" %>
+  </div>
+
+      <div class="col-md-8">
+        <h2><%= @item.description %></h2>
+        <h4>Category:<%= @item.category.name %></h4>
+        <h3><%= @item.code %></h3>
+        <p><%= @item.modelName %></p>
+        <h3><%= @item.location %></h3>
+        <h3><%= @item.manufacturer %></h3>
+        <h3><%= @item.serial %></h3>
+        <h3><%= @item.modelNumber %></h3>
+        <h3><%= @item.purchaseOrder %></h3>
+        <h3><%= @item.purchaseDate %></h3>
+        <h3>$<%= @item.purchasePrice %></h3>
+        <h3><%= @item.created_at %></h3>
+        <h3><%= @item.updated_at %></h3>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+  </div>
+
+<%= link_to "Back", root_path %>
+<% if user_signed_in? %>
+
+<% if @item.user_id == current_user.id %>
+
+  <%= link_to "Edit", edit_item_path(@item) %>
+  <%= link_to "Delete", item_path(@item), method: :delete, data: {confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>

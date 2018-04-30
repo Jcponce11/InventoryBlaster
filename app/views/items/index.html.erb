@@ -1,0 +1,15 @@
+<h1 class="current-category"><%= params[:category] %></h1>
+<% if @items.count == 0 %>
+  <h1>There are currently no inventory Items in this category</h1>
+<% else %>
+<div class="row">
+  <%= @items.each do |item| %>
+  <div class="col-md-3">
+  <a href="/items/<%= item.id %>">
+    <%= image_tag item.item_img.url(:item_index), class:"item" %>
+  </a>
+</div>
+<% end %>
+
+</div>
+<% end %>
